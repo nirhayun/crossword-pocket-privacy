@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="he" dir="rtl">
+<html lang="en" dir="ltr">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>מדיניות פרטיות — Sudoku Nines</title>
+    <title>Privacy Policy — Sudoku Nines</title>
     <style>
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body {
@@ -46,33 +46,37 @@
             margin-bottom: 0.75rem;
         }
         ul {
-            padding-right: 1.5rem;
             margin-bottom: 1rem;
         }
+        [dir="ltr"] ul { padding-left: 1.5rem; }
+        [dir="rtl"] ul { padding-right: 1.5rem; }
         a { color: #0066cc; text-decoration: none; }
         a:hover { text-decoration: underline; }
-        .divider {
-            border: none;
-            border-top: 1px solid #e5e5e5;
-            margin: 2rem 0;
-        }
-        .lang-toggle {
+        .lang-selector {
             text-align: center;
             margin-bottom: 1.5rem;
         }
-        .lang-toggle button {
-            background: #f5f5f7;
+        .lang-selector select {
+            appearance: none;
+            -webkit-appearance: none;
+            background: #f5f5f7 url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='8'%3E%3Cpath d='M1 1l5 5 5-5' stroke='%23424245' stroke-width='1.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E") no-repeat right 14px center;
             border: 1px solid #d2d2d7;
-            border-radius: 8px;
-            padding: 0.4rem 1rem;
-            font-size: 0.9rem;
+            border-radius: 10px;
+            padding: 0.5rem 2.5rem 0.5rem 1rem;
+            font-size: 0.95rem;
+            color: #1d1d1f;
             cursor: pointer;
-            margin: 0 0.25rem;
+            min-width: 180px;
+            text-align: center;
         }
-        .lang-toggle button.active {
-            background: #0066cc;
-            color: #fff;
+        [dir="rtl"] .lang-selector select {
+            background-position: left 14px center;
+            padding: 0.5rem 1rem 0.5rem 2.5rem;
+        }
+        .lang-selector select:focus {
+            outline: none;
             border-color: #0066cc;
+            box-shadow: 0 0 0 3px rgba(0, 102, 204, 0.15);
         }
         .section { display: none; }
         .section.active { display: block; }
@@ -80,79 +84,345 @@
 </head>
 <body>
     <div class="container">
-        <div class="lang-toggle">
-            <button class="active" onclick="switchLang('he')">עברית</button>
-            <button onclick="switchLang('en')">English</button>
-        </div>
-
-        <!-- Hebrew -->
-        <div id="he" class="section active">
-            <h1>מדיניות פרטיות</h1>
-            <p class="app-name">Sudoku Nines</p>
-            <p class="updated">עודכן לאחרונה: מרץ 2026</p>
-
-            <p>אנו מכבדים את פרטיותכם. מדיניות זו מסבירה אילו נתונים נאספים בעת השימוש באפליקציה "Sudoku Nines" וכיצד הם מנוהלים.</p>
-
-            <h2>מידע שאנו אוספים</h2>
-            <p><strong>אנו לא אוספים מידע אישי.</strong></p>
-            <p>כל נתוני המשחק — כולל ניקוד, התקדמות, הישגים, עזרות והגדרות — נשמרים מקומית במכשיר שלכם בלבד ואינם נשלחים לשרתים שלנו.</p>
-
-            <h2>שירותי צד שלישי</h2>
-            <p>האפליקציה משתמשת בשירותים הבאים:</p>
-            <ul>
-                <li><strong>Google AdMob</strong> — להצגת פרסומות. Google עשויה לאסוף מזהי מכשיר ונתוני שימוש לצורך התאמת פרסומות. למידע נוסף: <a href="https://policies.google.com/privacy">מדיניות הפרטיות של Google</a>.</li>
-                <li><strong>Apple Game Center</strong> — לוחות תוצאות (אופציונלי). מנוהל על ידי Apple בהתאם ל<a href="https://www.apple.com/legal/privacy/">מדיניות הפרטיות של Apple</a>.</li>
-            </ul>
-
-            <h2>ילדים</h2>
-            <p>האפליקציה אינה מיועדת לילדים מתחת לגיל 13 ואינה אוספת ביודעין מידע מילדים.</p>
-
-            <h2>שינויים במדיניות</h2>
-            <p>אנו עשויים לעדכן מדיניות זו מעת לעת. שינויים יפורסמו בדף זה עם תאריך עדכון חדש.</p>
-
-            <h2>יצירת קשר</h2>
-            <p>לשאלות בנוגע לפרטיות, ניתן לפנות אלינו בכתובת: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        <div class="lang-selector">
+            <select id="langSelect" onchange="switchLang(this.value)">
+                <option value="en">English</option>
+                <option value="ar">العربية</option>
+                <option value="de">Deutsch</option>
+                <option value="es">Español</option>
+                <option value="fr">Français</option>
+                <option value="he">עברית</option>
+                <option value="hi">हिन्दी</option>
+                <option value="ja">日本語</option>
+                <option value="ko">한국어</option>
+                <option value="pt-BR">Português (Brasil)</option>
+                <option value="ru">Русский</option>
+                <option value="tr">Türkçe</option>
+                <option value="zh-Hans">简体中文</option>
+            </select>
         </div>
 
         <!-- English -->
-        <div id="en" class="section">
+        <div id="en" class="section active">
             <h1>Privacy Policy</h1>
             <p class="app-name">Sudoku Nines</p>
             <p class="updated">Last updated: March 2026</p>
-
             <p>We respect your privacy. This policy explains what data is collected when you use the "Sudoku Nines" app and how it is managed.</p>
-
             <h2>Information We Collect</h2>
             <p><strong>We do not collect any personal information.</strong></p>
             <p>All game data — including scores, progress, achievements, lifelines, and settings — is stored locally on your device only and is never sent to our servers.</p>
-
             <h2>Third-Party Services</h2>
             <p>The app uses the following third-party services:</p>
             <ul>
                 <li><strong>Google AdMob</strong> — for displaying advertisements. Google may collect device identifiers and usage data for ad personalization. For more information, see <a href="https://policies.google.com/privacy">Google's Privacy Policy</a>.</li>
                 <li><strong>Apple Game Center</strong> — for leaderboards (optional). Managed by Apple under <a href="https://www.apple.com/legal/privacy/">Apple's Privacy Policy</a>.</li>
             </ul>
-
             <h2>Children</h2>
             <p>This app is not directed at children under 13 and does not knowingly collect information from children.</p>
-
             <h2>Changes to This Policy</h2>
             <p>We may update this policy from time to time. Changes will be posted on this page with a new update date.</p>
-
             <h2>Contact Us</h2>
             <p>For privacy-related questions, contact us at: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Arabic -->
+        <div id="ar" class="section">
+            <h1>سياسة الخصوصية</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">آخر تحديث: مارس 2026</p>
+            <p>نحن نحترم خصوصيتكم. توضح هذه السياسة البيانات التي يتم جمعها عند استخدام تطبيق "Sudoku Nines" وكيفية إدارتها.</p>
+            <h2>المعلومات التي نجمعها</h2>
+            <p><strong>لا نجمع أي معلومات شخصية.</strong></p>
+            <p>جميع بيانات اللعبة — بما في ذلك النتائج والتقدم والإنجازات والمساعدات والإعدادات — يتم تخزينها محليًا على جهازك فقط ولا يتم إرسالها إلى خوادمنا.</p>
+            <h2>خدمات الطرف الثالث</h2>
+            <p>يستخدم التطبيق الخدمات التالية من أطراف ثالثة:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — لعرض الإعلانات. قد تجمع Google معرّفات الجهاز وبيانات الاستخدام لتخصيص الإعلانات. لمزيد من المعلومات، راجع <a href="https://policies.google.com/privacy">سياسة خصوصية Google</a>.</li>
+                <li><strong>Apple Game Center</strong> — لقوائم المتصدرين (اختياري). تديره Apple وفقًا <a href="https://www.apple.com/legal/privacy/">لسياسة خصوصية Apple</a>.</li>
+            </ul>
+            <h2>الأطفال</h2>
+            <p>هذا التطبيق غير موجه للأطفال دون سن 13 عامًا ولا يجمع عن قصد معلومات من الأطفال.</p>
+            <h2>التغييرات على هذه السياسة</h2>
+            <p>قد نقوم بتحديث هذه السياسة من وقت لآخر. سيتم نشر التغييرات على هذه الصفحة مع تاريخ تحديث جديد.</p>
+            <h2>اتصل بنا</h2>
+            <p>للأسئلة المتعلقة بالخصوصية، تواصل معنا على: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- German -->
+        <div id="de" class="section">
+            <h1>Datenschutzrichtlinie</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">Zuletzt aktualisiert: März 2026</p>
+            <p>Wir respektieren Ihre Privatsphäre. Diese Richtlinie erklärt, welche Daten bei der Nutzung der App „Sudoku Nines" erhoben werden und wie sie verwaltet werden.</p>
+            <h2>Informationen, die wir erheben</h2>
+            <p><strong>Wir erheben keine persönlichen Daten.</strong></p>
+            <p>Alle Spieldaten — einschließlich Punktzahlen, Fortschritt, Erfolge, Hilfsmittel und Einstellungen — werden ausschließlich lokal auf Ihrem Gerät gespeichert und niemals an unsere Server gesendet.</p>
+            <h2>Drittanbieterdienste</h2>
+            <p>Die App nutzt folgende Drittanbieterdienste:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — zur Anzeige von Werbung. Google kann Gerätekennungen und Nutzungsdaten zur Personalisierung von Werbung erheben. Weitere Informationen finden Sie in der <a href="https://policies.google.com/privacy">Datenschutzrichtlinie von Google</a>.</li>
+                <li><strong>Apple Game Center</strong> — für Bestenlisten (optional). Wird von Apple gemäß der <a href="https://www.apple.com/legal/privacy/">Datenschutzrichtlinie von Apple</a> verwaltet.</li>
+            </ul>
+            <h2>Kinder</h2>
+            <p>Diese App richtet sich nicht an Kinder unter 13 Jahren und erhebt wissentlich keine Daten von Kindern.</p>
+            <h2>Änderungen dieser Richtlinie</h2>
+            <p>Wir können diese Richtlinie von Zeit zu Zeit aktualisieren. Änderungen werden auf dieser Seite mit einem neuen Aktualisierungsdatum veröffentlicht.</p>
+            <h2>Kontakt</h2>
+            <p>Bei Fragen zum Datenschutz kontaktieren Sie uns unter: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Spanish -->
+        <div id="es" class="section">
+            <h1>Política de Privacidad</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">Última actualización: marzo de 2026</p>
+            <p>Respetamos su privacidad. Esta política explica qué datos se recopilan cuando usa la aplicación "Sudoku Nines" y cómo se gestionan.</p>
+            <h2>Información que recopilamos</h2>
+            <p><strong>No recopilamos ninguna información personal.</strong></p>
+            <p>Todos los datos del juego — incluyendo puntuaciones, progreso, logros, ayudas y configuraciones — se almacenan localmente en su dispositivo y nunca se envían a nuestros servidores.</p>
+            <h2>Servicios de terceros</h2>
+            <p>La aplicación utiliza los siguientes servicios de terceros:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — para mostrar anuncios. Google puede recopilar identificadores de dispositivo y datos de uso para la personalización de anuncios. Para más información, consulte la <a href="https://policies.google.com/privacy">Política de Privacidad de Google</a>.</li>
+                <li><strong>Apple Game Center</strong> — para tablas de clasificación (opcional). Gestionado por Apple según la <a href="https://www.apple.com/legal/privacy/">Política de Privacidad de Apple</a>.</li>
+            </ul>
+            <h2>Niños</h2>
+            <p>Esta aplicación no está dirigida a niños menores de 13 años y no recopila intencionalmente información de niños.</p>
+            <h2>Cambios en esta política</h2>
+            <p>Podemos actualizar esta política de vez en cuando. Los cambios se publicarán en esta página con una nueva fecha de actualización.</p>
+            <h2>Contáctenos</h2>
+            <p>Para preguntas relacionadas con la privacidad, contáctenos en: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- French -->
+        <div id="fr" class="section">
+            <h1>Politique de confidentialité</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">Dernière mise à jour : mars 2026</p>
+            <p>Nous respectons votre vie privée. Cette politique explique quelles données sont collectées lors de l'utilisation de l'application « Sudoku Nines » et comment elles sont gérées.</p>
+            <h2>Informations que nous collectons</h2>
+            <p><strong>Nous ne collectons aucune information personnelle.</strong></p>
+            <p>Toutes les données de jeu — y compris les scores, la progression, les succès, les aides et les paramètres — sont stockées localement sur votre appareil uniquement et ne sont jamais envoyées à nos serveurs.</p>
+            <h2>Services tiers</h2>
+            <p>L'application utilise les services tiers suivants :</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — pour l'affichage de publicités. Google peut collecter des identifiants d'appareil et des données d'utilisation pour la personnalisation des publicités. Pour plus d'informations, consultez la <a href="https://policies.google.com/privacy">Politique de confidentialité de Google</a>.</li>
+                <li><strong>Apple Game Center</strong> — pour les classements (optionnel). Géré par Apple conformément à la <a href="https://www.apple.com/legal/privacy/">Politique de confidentialité d'Apple</a>.</li>
+            </ul>
+            <h2>Enfants</h2>
+            <p>Cette application ne s'adresse pas aux enfants de moins de 13 ans et ne collecte pas sciemment d'informations auprès d'enfants.</p>
+            <h2>Modifications de cette politique</h2>
+            <p>Nous pouvons mettre à jour cette politique de temps à autre. Les modifications seront publiées sur cette page avec une nouvelle date de mise à jour.</p>
+            <h2>Nous contacter</h2>
+            <p>Pour toute question relative à la confidentialité, contactez-nous à : <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Hebrew -->
+        <div id="he" class="section">
+            <h1>מדיניות פרטיות</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">עודכן לאחרונה: מרץ 2026</p>
+            <p>אנו מכבדים את פרטיותכם. מדיניות זו מסבירה אילו נתונים נאספים בעת השימוש באפליקציה "Sudoku Nines" וכיצד הם מנוהלים.</p>
+            <h2>מידע שאנו אוספים</h2>
+            <p><strong>אנו לא אוספים מידע אישי.</strong></p>
+            <p>כל נתוני המשחק — כולל ניקוד, התקדמות, הישגים, עזרות והגדרות — נשמרים מקומית במכשיר שלכם בלבד ואינם נשלחים לשרתים שלנו.</p>
+            <h2>שירותי צד שלישי</h2>
+            <p>האפליקציה משתמשת בשירותים הבאים:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — להצגת פרסומות. Google עשויה לאסוף מזהי מכשיר ונתוני שימוש לצורך התאמת פרסומות. למידע נוסף: <a href="https://policies.google.com/privacy">מדיניות הפרטיות של Google</a>.</li>
+                <li><strong>Apple Game Center</strong> — לוחות תוצאות (אופציונלי). מנוהל על ידי Apple בהתאם ל<a href="https://www.apple.com/legal/privacy/">מדיניות הפרטיות של Apple</a>.</li>
+            </ul>
+            <h2>ילדים</h2>
+            <p>האפליקציה אינה מיועדת לילדים מתחת לגיל 13 ואינה אוספת ביודעין מידע מילדים.</p>
+            <h2>שינויים במדיניות</h2>
+            <p>אנו עשויים לעדכן מדיניות זו מעת לעת. שינויים יפורסמו בדף זה עם תאריך עדכון חדש.</p>
+            <h2>יצירת קשר</h2>
+            <p>לשאלות בנוגע לפרטיות, ניתן לפנות אלינו בכתובת: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Hindi -->
+        <div id="hi" class="section">
+            <h1>गोपनीयता नीति</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">अंतिम अपडेट: मार्च 2026</p>
+            <p>हम आपकी गोपनीयता का सम्मान करते हैं। यह नीति बताती है कि "Sudoku Nines" ऐप का उपयोग करते समय कौन सा डेटा एकत्र किया जाता है और इसे कैसे प्रबंधित किया जाता है।</p>
+            <h2>हम कौन सी जानकारी एकत्र करते हैं</h2>
+            <p><strong>हम कोई व्यक्तिगत जानकारी एकत्र नहीं करते हैं।</strong></p>
+            <p>सभी गेम डेटा — जिसमें स्कोर, प्रगति, उपलब्धियां, सहायता और सेटिंग्स शामिल हैं — केवल आपके डिवाइस पर स्थानीय रूप से संग्रहीत होता है और कभी भी हमारे सर्वर पर नहीं भेजा जाता है।</p>
+            <h2>तृतीय-पक्ष सेवाएं</h2>
+            <p>ऐप निम्नलिखित तृतीय-पक्ष सेवाओं का उपयोग करता है:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — विज्ञापन प्रदर्शित करने के लिए। Google विज्ञापन वैयक्तिकरण के लिए डिवाइस पहचानकर्ता और उपयोग डेटा एकत्र कर सकता है। अधिक जानकारी के लिए, <a href="https://policies.google.com/privacy">Google की गोपनीयता नीति</a> देखें।</li>
+                <li><strong>Apple Game Center</strong> — लीडरबोर्ड के लिए (वैकल्पिक)। <a href="https://www.apple.com/legal/privacy/">Apple की गोपनीयता नीति</a> के अनुसार Apple द्वारा प्रबंधित।</li>
+            </ul>
+            <h2>बच्चे</h2>
+            <p>यह ऐप 13 वर्ष से कम उम्र के बच्चों के लिए निर्देशित नहीं है और जानबूझकर बच्चों से जानकारी एकत्र नहीं करता है।</p>
+            <h2>इस नीति में परिवर्तन</h2>
+            <p>हम समय-समय पर इस नीति को अपडेट कर सकते हैं। परिवर्तन इस पृष्ठ पर नई अपडेट तिथि के साथ प्रकाशित किए जाएंगे।</p>
+            <h2>संपर्क करें</h2>
+            <p>गोपनीयता संबंधी प्रश्नों के लिए, हमसे संपर्क करें: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Japanese -->
+        <div id="ja" class="section">
+            <h1>プライバシーポリシー</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">最終更新日：2026年3月</p>
+            <p>私たちはお客様のプライバシーを尊重しています。このポリシーでは、「Sudoku Nines」アプリの使用時に収集されるデータとその管理方法について説明します。</p>
+            <h2>収集する情報</h2>
+            <p><strong>個人情報は一切収集しません。</strong></p>
+            <p>すべてのゲームデータ（スコア、進捗、実績、ヘルプ、設定を含む）は、お客様のデバイスにのみローカルに保存され、当社のサーバーに送信されることはありません。</p>
+            <h2>サードパーティサービス</h2>
+            <p>本アプリは以下のサードパーティサービスを使用しています：</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — 広告の表示に使用。Googleは広告のパーソナライズのためにデバイス識別子や使用データを収集する場合があります。詳しくは<a href="https://policies.google.com/privacy">Googleのプライバシーポリシー</a>をご覧ください。</li>
+                <li><strong>Apple Game Center</strong> — リーダーボード用（オプション）。<a href="https://www.apple.com/legal/privacy/">Appleのプライバシーポリシー</a>に従い、Appleが管理しています。</li>
+            </ul>
+            <h2>お子様について</h2>
+            <p>本アプリは13歳未満のお子様を対象としておらず、お子様から故意に情報を収集することはありません。</p>
+            <h2>ポリシーの変更</h2>
+            <p>本ポリシーは随時更新される場合があります。変更はこのページに新しい更新日とともに掲載されます。</p>
+            <h2>お問い合わせ</h2>
+            <p>プライバシーに関するご質問は、以下のアドレスまでお問い合わせください：<a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Korean -->
+        <div id="ko" class="section">
+            <h1>개인정보 처리방침</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">최종 업데이트: 2026년 3월</p>
+            <p>우리는 귀하의 개인정보를 존중합니다. 이 방침은 "Sudoku Nines" 앱 사용 시 수집되는 데이터와 그 관리 방법을 설명합니다.</p>
+            <h2>수집하는 정보</h2>
+            <p><strong>개인 정보를 수집하지 않습니다.</strong></p>
+            <p>모든 게임 데이터(점수, 진행 상황, 업적, 도움말, 설정 포함)는 귀하의 기기에만 로컬로 저장되며 당사 서버로 전송되지 않습니다.</p>
+            <h2>제3자 서비스</h2>
+            <p>본 앱은 다음과 같은 제3자 서비스를 사용합니다:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — 광고 표시용. Google은 광고 맞춤설정을 위해 기기 식별자 및 사용 데이터를 수집할 수 있습니다. 자세한 내용은 <a href="https://policies.google.com/privacy">Google 개인정보 처리방침</a>을 참조하세요.</li>
+                <li><strong>Apple Game Center</strong> — 리더보드용 (선택 사항). <a href="https://www.apple.com/legal/privacy/">Apple의 개인정보 처리방침</a>에 따라 Apple이 관리합니다.</li>
+            </ul>
+            <h2>아동</h2>
+            <p>본 앱은 13세 미만의 아동을 대상으로 하지 않으며 아동으로부터 고의로 정보를 수집하지 않습니다.</p>
+            <h2>본 방침의 변경</h2>
+            <p>본 방침은 수시로 업데이트될 수 있습니다. 변경 사항은 이 페이지에 새로운 업데이트 날짜와 함께 게시됩니다.</p>
+            <h2>문의하기</h2>
+            <p>개인정보 관련 문의는 다음 주소로 연락해 주세요: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Portuguese (Brazil) -->
+        <div id="pt-BR" class="section">
+            <h1>Política de Privacidade</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">Última atualização: março de 2026</p>
+            <p>Respeitamos sua privacidade. Esta política explica quais dados são coletados quando você usa o aplicativo "Sudoku Nines" e como eles são gerenciados.</p>
+            <h2>Informações que coletamos</h2>
+            <p><strong>Não coletamos nenhuma informação pessoal.</strong></p>
+            <p>Todos os dados do jogo — incluindo pontuações, progresso, conquistas, ajudas e configurações — são armazenados localmente apenas no seu dispositivo e nunca são enviados aos nossos servidores.</p>
+            <h2>Serviços de terceiros</h2>
+            <p>O aplicativo utiliza os seguintes serviços de terceiros:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — para exibição de anúncios. O Google pode coletar identificadores de dispositivo e dados de uso para personalização de anúncios. Para mais informações, consulte a <a href="https://policies.google.com/privacy">Política de Privacidade do Google</a>.</li>
+                <li><strong>Apple Game Center</strong> — para tabelas de classificação (opcional). Gerenciado pela Apple de acordo com a <a href="https://www.apple.com/legal/privacy/">Política de Privacidade da Apple</a>.</li>
+            </ul>
+            <h2>Crianças</h2>
+            <p>Este aplicativo não é direcionado a crianças menores de 13 anos e não coleta intencionalmente informações de crianças.</p>
+            <h2>Alterações nesta política</h2>
+            <p>Podemos atualizar esta política periodicamente. As alterações serão publicadas nesta página com uma nova data de atualização.</p>
+            <h2>Fale conosco</h2>
+            <p>Para perguntas relacionadas à privacidade, entre em contato conosco em: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Russian -->
+        <div id="ru" class="section">
+            <h1>Политика конфиденциальности</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">Последнее обновление: март 2026</p>
+            <p>Мы уважаем вашу конфиденциальность. Эта политика объясняет, какие данные собираются при использовании приложения «Sudoku Nines» и как они управляются.</p>
+            <h2>Информация, которую мы собираем</h2>
+            <p><strong>Мы не собираем никакой личной информации.</strong></p>
+            <p>Все игровые данные — включая очки, прогресс, достижения, подсказки и настройки — хранятся только локально на вашем устройстве и никогда не отправляются на наши серверы.</p>
+            <h2>Сторонние сервисы</h2>
+            <p>Приложение использует следующие сторонние сервисы:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — для показа рекламы. Google может собирать идентификаторы устройства и данные об использовании для персонализации рекламы. Подробнее см. <a href="https://policies.google.com/privacy">Политику конфиденциальности Google</a>.</li>
+                <li><strong>Apple Game Center</strong> — для таблиц лидеров (необязательно). Управляется Apple в соответствии с <a href="https://www.apple.com/legal/privacy/">Политикой конфиденциальности Apple</a>.</li>
+            </ul>
+            <h2>Дети</h2>
+            <p>Это приложение не предназначено для детей младше 13 лет и не собирает сознательно информацию от детей.</p>
+            <h2>Изменения в этой политике</h2>
+            <p>Мы можем время от времени обновлять эту политику. Изменения будут опубликованы на этой странице с новой датой обновления.</p>
+            <h2>Свяжитесь с нами</h2>
+            <p>По вопросам конфиденциальности обращайтесь по адресу: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Turkish -->
+        <div id="tr" class="section">
+            <h1>Gizlilik Politikası</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">Son güncelleme: Mart 2026</p>
+            <p>Gizliliğinize saygı duyuyoruz. Bu politika, "Sudoku Nines" uygulamasını kullanırken hangi verilerin toplandığını ve nasıl yönetildiğini açıklar.</p>
+            <h2>Topladığımız Bilgiler</h2>
+            <p><strong>Hiçbir kişisel bilgi toplamıyoruz.</strong></p>
+            <p>Tüm oyun verileri — puanlar, ilerleme, başarılar, yardımlar ve ayarlar dahil — yalnızca cihazınızda yerel olarak saklanır ve asla sunucularımıza gönderilmez.</p>
+            <h2>Üçüncü Taraf Hizmetleri</h2>
+            <p>Uygulama aşağıdaki üçüncü taraf hizmetlerini kullanmaktadır:</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — reklam gösterimi için. Google, reklam kişiselleştirme amacıyla cihaz tanımlayıcıları ve kullanım verileri toplayabilir. Daha fazla bilgi için <a href="https://policies.google.com/privacy">Google Gizlilik Politikası</a>'na bakın.</li>
+                <li><strong>Apple Game Center</strong> — lider tabloları için (isteğe bağlı). <a href="https://www.apple.com/legal/privacy/">Apple'ın Gizlilik Politikası</a> kapsamında Apple tarafından yönetilir.</li>
+            </ul>
+            <h2>Çocuklar</h2>
+            <p>Bu uygulama 13 yaşın altındaki çocuklara yönelik değildir ve çocuklardan bilerek bilgi toplamaz.</p>
+            <h2>Bu Politikadaki Değişiklikler</h2>
+            <p>Bu politikayı zaman zaman güncelleyebiliriz. Değişiklikler bu sayfada yeni bir güncelleme tarihiyle yayınlanacaktır.</p>
+            <h2>Bize Ulaşın</h2>
+            <p>Gizlilikle ilgili sorularınız için bizimle iletişime geçin: <a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
+        </div>
+
+        <!-- Simplified Chinese -->
+        <div id="zh-Hans" class="section">
+            <h1>隐私政策</h1>
+            <p class="app-name">Sudoku Nines</p>
+            <p class="updated">最后更新：2026年3月</p>
+            <p>我们尊重您的隐私。本政策说明在您使用"Sudoku Nines"应用时收集哪些数据以及如何管理这些数据。</p>
+            <h2>我们收集的信息</h2>
+            <p><strong>我们不收集任何个人信息。</strong></p>
+            <p>所有游戏数据（包括分数、进度、成就、帮助和设置）仅存储在您的设备本地，绝不会发送到我们的服务器。</p>
+            <h2>第三方服务</h2>
+            <p>本应用使用以下第三方服务：</p>
+            <ul>
+                <li><strong>Google AdMob</strong> — 用于展示广告。Google可能会收集设备标识符和使用数据以进行广告个性化。更多信息请参阅<a href="https://policies.google.com/privacy">Google隐私政策</a>。</li>
+                <li><strong>Apple Game Center</strong> — 用于排行榜（可选）。由Apple根据<a href="https://www.apple.com/legal/privacy/">Apple隐私政策</a>进行管理。</li>
+            </ul>
+            <h2>儿童</h2>
+            <p>本应用不面向13岁以下的儿童，也不会故意收集儿童的信息。</p>
+            <h2>本政策的变更</h2>
+            <p>我们可能会不时更新本政策。变更将在此页面上发布，并附上新的更新日期。</p>
+            <h2>联系我们</h2>
+            <p>如有隐私相关问题，请通过以下地址联系我们：<a href="mailto:deepsoundsmusicbase@gmail.com">deepsoundsmusicbase@gmail.com</a></p>
         </div>
     </div>
 
     <script>
+        var rtlLangs = ['ar', 'he'];
+
         function switchLang(lang) {
-            document.querySelectorAll('.section').forEach(s => s.classList.remove('active'));
-            document.querySelectorAll('.lang-toggle button').forEach(b => b.classList.remove('active'));
-            document.getElementById(lang).classList.add('active');
-            document.querySelector(`[onclick="switchLang('${lang}')"]`).classList.add('active');
-            document.documentElement.dir = lang === 'he' ? 'rtl' : 'ltr';
+            document.querySelectorAll('.section').forEach(function(s) { s.classList.remove('active'); });
+            var target = document.getElementById(lang);
+            if (!target) { target = document.getElementById('en'); lang = 'en'; }
+            target.classList.add('active');
+            document.getElementById('langSelect').value = lang;
+            var isRtl = rtlLangs.indexOf(lang) !== -1;
+            document.documentElement.dir = isRtl ? 'rtl' : 'ltr';
             document.documentElement.lang = lang;
+            window.location.hash = lang;
         }
+
+        (function() {
+            var hash = window.location.hash.replace('#', '');
+            var validLangs = ['en','ar','de','es','fr','he','hi','ja','ko','pt-BR','ru','tr','zh-Hans'];
+            var lang = (hash && validLangs.indexOf(hash) !== -1) ? hash : 'en';
+            switchLang(lang);
+        })();
     </script>
 </body>
 </html>
